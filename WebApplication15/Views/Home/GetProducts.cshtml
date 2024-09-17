@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/css/Products.css" asp-append-version="true" />
+    <style>
+        body {
+            background-color: white; /* Set page background color to black */
+            color: white; /* Set text color to white */
+        }
+    </style>
+</head>
+<body>
+    <h1>Products</h1>
+    <a href="/Home/InsertAProductForm" class="button"> Insert A Product </a>
+    <br />
+    <br />
+
+    <div class="form-container">
+        <form method="get" action="FilterProducts" class="filter-form">
+            <div class="filter-section">
+                <h3>Filter By</h3>
+                <select id="filterSelect" name="filterBy">
+                    <option value="unitPrice">Price</option>
+                    <option value="productId">Product ID</option>
+                    <option value="productName">Product Name</option>
+                    <option value="supplierId">Supplier ID</option>
+                    <option value="categoryId">Category ID</option>
+                </select>
+            </div>
+            <div id="priceFilters" class="filter-section">
+                Minimum Price: <input type="text" name="minimumPrice" placeholder="Enter minimum price" /> <br /><br /><br />
+                Maximum Price: <input type="text" name="maximumPrice" placeholder="Enter maximum price" /> <br /><br />
+            </div>
+            <div id="otherFilters" class="filter-section" style="display:none;">
+                Filter Value: <input type="text" name="filterValue" placeholder="Enter filter value" /> <br /> <br />
+            </div>
+            <div class="button-section">
+                <input type="submit" class="submit-button" />
+                <input type="reset" class="reset-button" />
+            </div>
+        </form>
+    </div>
+
+
+    <script>
+        // Show/hide price filters and filter value based on selected filter criteria
+        document.getElementById('filterSelect').addEventListener('change', function () {
+            var priceFilters = document.getElementById('priceFilters');
+            var otherFilters = document.getElementById('otherFilters');
+            var selectedOption = this.value;
+            if (selectedOption === 'unitPrice') {
+                priceFilters.style.display = 'block';
+                otherFilters.style.display = 'none';
+            } else {
+                priceFilters.style.display = 'none';
+                otherFilters.style.display = 'block';
+            }
+        });
+
+        // Check initial value of filter select box
+        window.addEventListener('DOMContentLoaded', function () {
+            var filterSelect = document.getElementById('filterSelect');
+            if (filterSelect.value === 'unitPrice') {
+                document.getElementById('priceFilters').style.display = 'block';
+                document.getElementById('otherFilters').style.display = 'none';
+            }
+        });
+    </script>
+
+    <table class="table table-bordered revealable">
+
+        <tr>
+            <th> ProductId </th>
+            <th> ProductName </th>
+            <th> SupplierId </th>
+            <th> CategoryId </th>
+            <th> UnitPrice  </th>
+            <th>   </th>
+        </tr>
+
+        @foreach (var p in ViewBag.ListOfProducts)
+        {
+            <tr>
+                <td> <a href="UpdateAProductForm?aProductId=@p.ProductId">     @p.ProductId   </a></td>
+                <td> <a href="UpdateAProductForm?aProductId=@p.ProductId">     @p.ProductName </a></td>
+                <td> @p.SupplierId </td>
+                <td> @p.CategoryId </td>
+                <td> @p.UnitPrice  </td>
+                <td> <a href="UpdateAProductForm?aProductId=@p.ProductId" class="button">Update</a> </td>
+            </tr>
+        }
+
+    </table>
+    <script src="~/js/site.js"></script>
+</body>
+</html>

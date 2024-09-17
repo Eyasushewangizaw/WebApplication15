@@ -1,0 +1,42 @@
+﻿@{
+    ViewData["Title"] = "OrderDetails";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/css/OrderDetails.css" asp-append-version="true" />
+</head>
+<body>
+    <h2>Order Details</h2>
+    <a href="InsertOrderDetailsForm" class="button"> Insert Order Details </a>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Order ID</th>
+                <th>Product ID</th>
+                <th>Unit Price</th>
+                <th>Quantity</th>
+                <th>Discount</th>
+                <th> </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var detail in ViewBag.ListOfOrderDetails)
+            {
+                <tr>
+                    <td>@detail.OrderId</td>
+                    <td>@detail.ProductId</td>
+                    <td>@detail.UnitPrice</td>
+                    <td>@detail.Quantity</td>
+                    <td>@detail.Discount</td>
+                    <td> <a href="UpdateAnOrderDetailsForm?aProductId=@detail.ProductId" class="button">Update</a> </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>

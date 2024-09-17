@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/css/Customers.css" asp-append-version="true" />
+</head>
+<body>
+    <h1>Customers</h1>
+    <a href="/Home/InsertCustomerForm" class="button">Insert Customer</a>
+    <a href="/Home/Index" class="button">Back</a>
+    <br />
+    <br />
+    <table>
+        <thead>
+            <tr>
+                <th>Customer ID</th>
+                <th>Company Name</th>
+                <th>Contact Name</th>
+                <th>Contact Title</th>
+                <th>Address</th>
+                <th>City</th>
+                <th>Region</th>
+                <th>Postal Code</th>
+                <th>Country</th>
+                <th>Phone</th>
+                <th>Fax</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var customer in ViewBag.ListOfCustomers)
+            {
+                <tr>
+                    <td>@customer.CustomerId</td>
+                    <td>@customer.CompanyName</td>
+                    <td>@customer.ContactName</td>
+                    <td>@customer.ContactTitle</td>
+                    <td>@customer.Address</td>
+                    <td>@customer.City</td>
+                    <td>@customer.Region</td>
+                    <td>@customer.PostalCode</td>
+                    <td>@customer.Country</td>
+                    <td>@customer.Phone</td>
+                    <td>@customer.Fax</td>
+                    <td> <a href="UpdateACustomerForm?aCustomerId=@customer.CustomerId" class="button">Update</a> </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>

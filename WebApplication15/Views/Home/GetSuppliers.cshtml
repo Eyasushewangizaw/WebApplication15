@@ -1,0 +1,56 @@
+﻿@{
+    ViewData["Title"] = "Suppliers";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/css/Employees.css" asp-append-version="true" />
+</head>
+<body>
+    <h1>Suppliers</h1>
+    <a href="/Home/InsertSuppliersForm" class="button">Insert Suppliers</a>
+    <a href="/Home/Index" class="button">Back</a>
+    <br />
+    <br />
+    <table>
+        <thead>
+            <tr>
+                <th>Supplier Id</th>
+                <th>Company Name</th>
+                <th>Contact Title</th>
+                <th>Address</th>
+                <th>City</th>
+                <th>Contact Name</th>
+                <th>Postal code</th>
+                <th>Country</th>
+                <th>Phone</th>
+                <th>Fax</th>
+                <th></th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var suppliers in ViewBag.ListofSuppliers)
+            {
+                <tr>
+                    <td> <a href="UpdateASupplierForm?aSupplierId=@suppliers.SupplierId">@suppliers.SupplierId</td>
+                    <td> <a href="UpdateASupplierForm?aSupplierId=@suppliers.SupplierId">@suppliers.CompanyName</td>
+                    <td>@suppliers.ContactTitle</td>
+                    <td>@suppliers.Address</td>
+                    <td>@suppliers.City</td>
+                    <td>@suppliers.ContactName</td>
+                    <td>@suppliers.PostalCode</td>
+                    <td>@suppliers.Country</td>
+                    <td>@suppliers.Phone</td>
+                    <td>@suppliers.Fax</td>
+                    <td> <a href="UpdateASupplierForm?aSupplierId=@suppliers.SupplierId" class="button">Update</a> </td>
+
+
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>

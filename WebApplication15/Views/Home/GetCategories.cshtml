@@ -1,0 +1,41 @@
+﻿@{
+    ViewData["Title"] = "Categories";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/css/Categories.css" asp-append-version="true" />
+</head>
+<body>
+
+    <h1>Categories</h1>
+
+    <a href="/Home/InsertACategoryForm" class="button"> Insert a Category </a>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Category ID</th>
+                <th>Category Name</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var category in ViewBag.ListOfCategories)
+            {
+                <tr>
+                    <td>@category.CategoryId</td>
+                    <td>@category.CategoryName</td>
+                    <td>@category.Description</td>
+                    <td><a href="UpdateACategoryForm?aCategoryId=@category.CategoryId" class="button">Update</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</body>
+</html>
