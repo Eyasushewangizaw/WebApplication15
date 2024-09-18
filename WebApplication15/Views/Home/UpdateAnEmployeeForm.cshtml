@@ -1,10 +1,52 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <title></title>
-</head>
-<body>
+﻿<h2>Update an Employee</h2>
+<h4>Primary Key: @ViewBag.ListOfEmployees[0].EmployeeId </h4>
 
-</body>
-</html>
+<form action="UpdateAnEmployee" method="post">
+
+    <input type="hidden" name="employeeId" value="@ViewBag.ListOfEmployees[0].EmployeeId" />
+
+    Last Name <br />
+    <input type="text" name="lastName" value="@ViewBag.ListOfEmployees[0].LastName" /> <br />
+
+    First Name <br />
+    <input type="text" name="firstName" value="@ViewBag.ListOfEmployees[0].FirstName" /> <br />
+
+    Title <br />
+    <input type="text" name="title" value="@ViewBag.ListOfEmployees[0].Title" /> <br />
+
+    Title of Courtesy <br />
+    <input type="text" name="titleOfCourtesy" value="@ViewBag.ListOfEmployees[0].TitleOfCourtesy" /> <br />
+
+    Birth Date <br />
+    <input type="date" name="birthDate" value="@ViewBag.ListOfEmployees[0].BirthDate" /> <br />
+
+    Hire Date <br />
+    <input type="date" name="hireDate" value="@ViewBag.ListOfEmployees[0].HireDate" /> <br />
+
+    Address <br />
+    <input type="text" name="address" value="@ViewBag.ListOfEmployees[0].Address" /> <br />
+
+    City <br />
+    <input type="text" name="city" value="@ViewBag.ListOfEmployees[0].City" /> <br />
+
+    Postal Code <br />
+    <input type="text" name="postalCode" value="@ViewBag.ListOfEmployees[0].PostalCode" /> <br />
+
+    Country <br />
+    <input type="text" name="country" value="@ViewBag.ListOfEmployees[0].Country" /> <br />
+
+    Home Phone <br />
+    <input type="text" name="homePhone" value="@ViewBag.ListOfEmployees[0].HomePhone" /> <br />
+
+    Extension <br />
+    <input type="text" name="extension" value="@ViewBag.ListOfEmployees[0].Extension" /> <br />
+
+    Notes <br />
+    <textarea name="notes">@ViewBag.ListOfEmployees[0].Notes</textarea> <br />
+
+    <br /><br />
+
+    <input type="submit" />
+    <input type="reset" />
+
+</form>

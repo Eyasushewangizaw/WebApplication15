@@ -1,2 +1,44 @@
-﻿body {
+﻿/* Custom CSS for Index page */
+body {
+    background-color: white; /* Set page background color to black */
+    color: black; /* Set text color to white */
+}
+
+h1 {
+    color: gold;
+}
+
+.button {
+    font-size: 24px;
+    width: 100%;
+    height: 80px; /* Adjust height as needed */
+    margin: 10px 0;
+    border-radius: 7px; /* Square shape */
+    border: none; /* Remove border */
+    color: #fff; /* Text color */
+    display: grid; /* Display as grid */
+    place-items: center; /* Center content within the grid */
+    text-decoration: none; /* Remove underline */
+    transition: all 0.3s ease; /* Smooth transition */
+}
+
+opacity: 0.8; /* Reduce opacity on hover for visual feedback */
+}
+
+.revealable {
+    position: relative;
+    transform: translateY(150px);
+    opacity: 0;
+    transition: all 2s ease;
+}
+
+    .revealable.active {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+/* Ensure all buttons take up full width of the screen */
+.col-md-6 {
+    width: 100%;
+    max-width: 100%;
 }

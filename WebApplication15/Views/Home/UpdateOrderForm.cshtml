@@ -1,10 +1,52 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <title></title>
-</head>
-<body>
+﻿<h2>Update an Order</h2>
+<h4>Order ID: @ViewBag.ListOfOrders[0].OrderId </h4>
 
-</body>
-</html>
+<form action="UpdateOrder" method="post">
+
+    <input type="hidden" name="orderId" value="@ViewBag.ListOfOrders[0].OrderId" />
+
+    Customer ID <br />
+    <input type="text" name="customerId" value="@ViewBag.ListOfOrders[0].CustomerId" /> <br />
+
+    Employee ID <br />
+    <input type="text" name="employeeId" value="@ViewBag.ListOfOrders[0].EmployeeId" /> <br />
+
+    Order Date <br />
+    <input type="date" name="orderDate" value="@ViewBag.ListOfOrders[0].OrderDate" /> <br />
+
+    Required Date <br />
+    <input type="date" name="requiredDate" value="@ViewBag.ListOfOrders[0].RequiredDate" /> <br />
+
+    Shipped Date <br />
+    <input type="date" name="shippedDate" value="@ViewBag.ListOfOrders[0].ShippedDate" /> <br />
+
+    Ship Via <br />
+    <input type="text" name="shipVia" value="@ViewBag.ListOfOrders[0].ShipVia" /> <br />
+
+    Freight <br />
+    <input type="text" name="freight" value="@ViewBag.ListOfOrders[0].Freight" /> <br />
+
+    Ship Name <br />
+    <input type="text" name="shipName" value="@ViewBag.ListOfOrders[0].ShipName" /> <br />
+
+    Ship Address <br />
+    <input type="text" name="shipAddress" value="@ViewBag.ListOfOrders[0].ShipAddress" /> <br />
+
+    Ship City <br />
+    <input type="text" name="shipCity" value="@ViewBag.ListOfOrders[0].ShipCity" /> <br />
+
+    Ship Region <br />
+    <input type="text" name="shipRegion" value="@ViewBag.ListOfOrders[0].ShipRegion" /> <br />
+
+    Ship Postal Code <br />
+    <input type="text" name="shipPostalCode" value="@ViewBag.ListOfOrders[0].ShipPostalCode" /> <br />
+
+    Ship Country <br />
+    <input type="text" name="shipCountry" value="@ViewBag.ListOfOrders[0].ShipCountry" /> <br />
+
+    <br /><br />
+
+    <input type="submit" />
+    <input type="reset" />
+
+</form>

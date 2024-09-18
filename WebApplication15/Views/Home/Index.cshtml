@@ -1,8 +1,54 @@
-﻿@{
+﻿﻿@{
     ViewData["Title"] = "Home Page";
 }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="~/css/Index.css" asp-append-version="true" />
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container text-center">
+        <h1 class="display-4"> WELCOME TO NORTHWIND </h1>
+        <p class="group-members">Group Members: Eyasu Shiferaw, Nebil Yousuf & Ubaid Ur Rehman</p>
+    </div>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+    <div class="container text-center mt-5">
+        <div class="row">
+            <div class="col-md-6">
+                <a href="/Home/GetProducts" class="button btn-primary"><i class="fas fa-box"></i> Products</a>
+            </div>
+            <div class="col-md-6">
+                <a href="/Home/GetEmployees" class="button btn-secondary"><i class="fas fa-users"></i> Employees</a>
+            </div>
+            <div class="col-md-6">
+                <a href="/Home/GetOrders" class="button btn-success"><i class="fas fa-shopping-cart"></i> Orders</a>
+            </div>
+            <div class="col-md-6">
+                <a href="/Home/GetOrderDetails" class="button btn-danger"><i class="fas fa-list-alt"></i> Order Details</a>
+            </div>
+            <div class="col-md-6">
+                <a href="/Home/GetCategories" class="button btn-warning"><i class="fas fa-tags"></i> Categories</a>
+            </div>
+            <div class="col-md-6">
+                <a href="/Home/GetSuppliers" class="button btn-info"><i class="fas fa-truck"></i> Suppliers</a>
+            </div>
+            <div class="col-md-6">
+                <a href="/Home/GetShippers" class="button btn-dark"><i class="fas fa-ship"></i> Shippers</a>
+            </div>
+            <div class="col-md-6">
+                <a href="/Home/GetCustomers" class="button btn-primary"><i class="fas fa-user"></i> Customers</a>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,10 +1,67 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/css/Inseraproductform.css" asp-append-version="true" />
+    <script src="~/js/Product.js" asp-append-version="true"></script>
+    <script>
+        function validateForm() {
+            var productName = document.getElementById("productName").value.trim();
+            var unitPrice = document.getElementById("unitPrice").value.trim();
+
+            // Validate product name
+            if (productName === "") {
+                alert("Please enter a product name.");
+                return false;
+            }
+
+            // Validate unit price
+            if (isNaN(unitPrice) || parseFloat(unitPrice) <= 0) {
+                alert("Please enter a valid unit price.");
+                return false;
+            }
+
+            return true; // Form submission will proceed if all validations pass
+        }
+    </script>
 </head>
 <body>
-
+    <h2>Insert a New Product</h2>
+    <div class="container">
+        <form action="InsertAProduct" method="Post" onsubmit="return validateForm()">
+            <div class="form-group">
+                <label for="productName">Product Name</label>
+                <input type="text" id="productName" name="productName" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="supplierId">Supplier Id</label>
+                <select id="supplierId" name="supplierId" class="form-control">
+                    @foreach (var s in ViewBag.ListOfSuppliers)
+                    {
+                        <option value="@s.SupplierId">@s.SupplierId - @s.CompanyName</option>
+                    }
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="categoryId">Category Id</label>
+                <select id="categoryId" name="categoryId" class="form-control">
+                    @foreach (var c in ViewBag.ListOfCategories)
+                    {
+                        <option value="@c.CategoryId">@c.CategoryId - @c.CategoryName</option>
+                    }
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="unitPrice">Unit Price</label>
+                <input type="text" id="unitPrice" name="unitPrice" class="form-control">
+            </div>
+            <div class="form-actions">
+                <input type="submit" value="Submit" class="btn btn-primary">
+                <input type="reset" value="Reset" class="btn btn-secondary">
+                <a class="btn btn-info" asp-area="" asp-controller="Home" asp-action="GetProducts"><span>Back</span></a>
+            </div>
+        </form>
+    </div>
 </body>
 </html>

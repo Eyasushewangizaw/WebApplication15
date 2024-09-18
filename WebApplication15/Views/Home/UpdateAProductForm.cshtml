@@ -1,10 +1,82 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <title></title>
-</head>
-<body>
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
 
-</body>
-</html>
+
+<h2>Update a Product</h2>
+<h4>Primary Key: @ViewBag.ListOfProducts[0].ProductId </h4>
+
+
+<form action="UpdateAProduct" method="Post">
+
+    <input type="hidden" name="productId" value="@ViewBag.ListOfProducts[0].ProductId" />
+
+
+    Product Name <br />
+    <input type="text" id="this1 is for js" class="this is for your css" name="productName" value="@ViewBag.ListOfProducts[0].ProductName" /> <br />
+
+    Supplier Id <br />
+
+
+    <select name="supplierId">
+
+        @foreach (var s in ViewBag.ListOfSuppliers)
+        {
+            @if (s.SupplierId == @ViewBag.ListOfProducts[0].SupplierId)
+            {
+                <option value="@s.SupplierId" SELECTED> @s.SupplierId @s.CompanyName </option>
+            }
+            else
+            {
+                <option value="@s.SupplierId"> @s.SupplierId @s.CompanyName </option>
+            }
+
+
+        }
+
+    </select>
+
+    <br /><br />
+
+    Category Id <br />
+
+
+    <select name="categoryId">
+
+        @foreach (var c in ViewBag.ListOfCategories)
+        {
+
+            @if (c.CategoryId == @ViewBag.ListOfProducts[0].CategoryId)
+            {
+                <option value="@c.CategoryId" SELECTED> @c.CategoryId @c.CategoryName </option>
+            }
+            else
+            {
+                <option value="@c.CategoryId"> @c.CategoryId @c.CategoryName </option>
+            }
+
+        }
+
+    </select>
+
+
+
+
+    <br /><br />
+
+
+
+
+
+
+    Unit Price <br />
+    <input type="text" id="this4 is for js" class="this is for your css" name="unitPrice" value="@ViewBag.ListOfProducts[0].UnitPrice" /> <br />
+    <br />
+
+    <input type="submit" />    <input type="reset" />
+
+
+</form>
+

@@ -1,10 +1,20 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <title></title>
-</head>
-<body>
+﻿<h2>Update Categories </h2>
+<h4>Primary Key: @ViewBag.ListOfCategories[0].CategoryId </h4>
 
-</body>
-</html>
+<form action="UpdateACategory" method="post">
+
+    <input type="hidden" name="categoryId" value="@ViewBag.ListOfCategories[0].CategoryId" />
+
+
+    Category Name <br />
+    <input type="text" name="categoryname" value="@ViewBag.ListOfCategories[0].CategoryName" /> <br />
+
+    Description <br />
+    <input type="text" name="description" value="@ViewBag.ListOfCategories[0].Description" /> <br />
+
+    <br /><br />
+
+    <input type="submit" />
+    <input type="reset" />
+
+</form>

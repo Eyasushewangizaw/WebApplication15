@@ -1,10 +1,42 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <title></title>
-</head>
-<body>
+﻿<h2>Update Order Detail</h2>
+<h4>Order ID:  @ViewBag.ListOfOrderDetails[0].OrderId    Product ID: @ViewBag.ListOfProducts[0].ProductId    </h4>
 
-</body>
-</html>
+
+
+<form action="UpdateAnOrderDetails" method="Post">
+
+    <input type="hidden" name="orderId" value="@ViewBag.ListOfOrderDetails[0].OrderId" />
+    <input type="hidden" name="productId" value="@ViewBag.ListOfOrderDetails[0].ProductId" />
+
+    Order ID <br />
+    <input type="text" id="this1 is for js" class="this is for your css" name="orderId" value="@ViewBag.ListOfOrderDetails[0].OrderId" readonly /> <br />
+
+    Product ID <br />
+    <select name="productId" id="this2 is for js" class="this is for your css">
+        @foreach (var p in ViewBag.ListOfProducts)
+        {
+            @if (p.ProductId == @ViewBag.ListOfOrderDetails[0].ProductId)
+            {
+                <option value="@p.ProductId" selected>@p.ProductId  </option>
+            }
+            else
+            {
+                <option value="@p.ProductId">@p.ProductId   </option>
+            }
+        }
+    </select>
+    <br /><br />
+
+    Unit Price <br />
+    <input type="text" id="this3 is for js" class="this is for your css" name="unitPrice" value="@ViewBag.ListOfOrderDetails[0].UnitPrice" /> <br />
+
+    Quantity <br />
+    <input type="text" id="this4 is for js" class="this is for your css" name="quantity" value="@ViewBag.ListOfOrderDetails[0].Quantity" /> <br />
+
+    Discount <br />
+    <input type="text" id="this5 is for js" class="this is for your css" name="discount" value="@ViewBag.ListOfOrderDetails[0].Discount" /> <br />
+    <br />
+
+    <input type="submit" value="Update Order Detail" />    <input type="reset" value="Reset" />
+
+</form>

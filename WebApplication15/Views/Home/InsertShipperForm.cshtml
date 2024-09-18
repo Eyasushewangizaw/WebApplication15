@@ -1,10 +1,45 @@
-﻿<!DOCTYPE html>
-<html>
+﻿@{
+    ViewData["Title"] = "Insert Shipper Form";
+}
+
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <script>
+        function validateForm() {
+            var shipperId = document.getElementById("shipperId").value.trim();
+            var companyName = document.getElementById("companyName").value.trim();
+            var phoneNumber = document.getElementById("phonenum").value.trim();
+
+            // Basic validation
+            if (shipperId === "" || isNaN(shipperId) || companyName === "" || phoneNumber === "") {
+                alert("Please enter valid values for all fields.");
+                return false;
+            }
+
+            // Additional validation if needed
+
+            return true; // Form submission will proceed if all validations pass
+        }
+    </script>
 </head>
 <body>
+    <h2>Insert a New Shipper</h2>
+    <form action="InsertShipper" method="post" onsubmit="return validateForm()">
+        Shipper ID <br />
+        <input type="text" id="shipperId" class="thisIsForYourCss" name="shipperId" /> <br />
 
+        Company Name <br />
+        <input type="text" id="companyName" class="thisIsForYourCss" name="companyName" /> <br />
+
+        Phone Number <br />
+        <input type="text" id="phonenum" class="thisIsForYourCss" name="phonenum" /> <br /><br />
+
+        <input type="submit" value="Submit" />
+        <input type="reset" value="Reset" />
+    </form>
 </body>
 </html>

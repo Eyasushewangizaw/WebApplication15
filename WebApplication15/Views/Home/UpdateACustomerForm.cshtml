@@ -1,10 +1,60 @@
-﻿<!DOCTYPE html>
-<html>
+﻿﻿
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/css/InsertEmployees.css" asp-append-version="true" />
+    <script src="~/js/Customers.js" asp-append-version="true"></script>
+
+    <title>Update a Customer</title>
 </head>
 <body>
+    <div class="container">
+        <h2>Update a Customer</h2>
+        <h4>Customer ID (Primary Key): @ViewBag.ListOfCustomers[0].CustomerId </h4>
 
+        <form action="UpdateACustomer" method="post" onsubmit="return validateUpdateCustomerForm()">
+
+            <input type="hidden" name="customerId" value="@ViewBag.ListOfCustomers[0].CustomerId" />
+
+            Company Name <br />
+            <input type="text" name="companyName" value="@ViewBag.ListOfCustomers[0].CompanyName" /> <br />
+
+            Contact Name <br />
+            <input type="text" name="contactName" value="@ViewBag.ListOfCustomers[0].ContactName" /> <br />
+
+            Contact Title <br />
+            <input type="text" name="contactTitle" value="@ViewBag.ListOfCustomers[0].ContactTitle" /> <br />
+
+            Address <br />
+            <input type="text" name="address" value="@ViewBag.ListOfCustomers[0].Address" /> <br />
+
+            City <br />
+            <input type="text" name="city" value="@ViewBag.ListOfCustomers[0].City" /> <br />
+
+            Region <br />
+            <input type="text" name="region" value="@ViewBag.ListOfCustomers[0].Region" /> <br />
+
+            Postal Code <br />
+            <input type="text" name="postalCode" value="@ViewBag.ListOfCustomers[0].PostalCode" /> <br />
+
+            Country <br />
+            <input type="text" name="country" value="@ViewBag.ListOfCustomers[0].Country" /> <br />
+
+            Phone <br />
+            <input type="text" name="Phone" value="@ViewBag.ListOfCustomers[0].Phone" /> <br />
+
+            Fax <br />
+            <input type="text" name="fax" value="@ViewBag.ListOfCustomers[0].Fax" /> <br />
+
+            <br /><br />
+
+            <input type="submit" value="Submit" />
+            <input type="reset" value="Reset" />
+            <a class="button" asp-area="" asp-controller="Home" asp-action="GetCustomers"><span>Back</span></a>
+
+        </form>
+    </div>
 </body>
 </html>

@@ -1,10 +1,53 @@
-﻿<!DOCTYPE html>
-<html>
+﻿﻿
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Suppliers Form</title>
+    <link rel="stylesheet" href="~/css/InsertEmployees.css" asp-append-version="true" />
+    <script src="~/js/Suppliers.js" asp-append-version="true"></script>
+
 </head>
 <body>
+
+    <h2>Update Shipper</h2>
+    <div class="container">
+        <form action="/Home/UpdateSuppliers" method="post" onsubmit="return validateUpdateSupplierForm()">
+            <input type="hidden" name="supplierId" value="@ViewBag.ListOfSuppliers[0].SupplierId" />
+
+            <label for="companyName">Company Name:</label><br />
+            <input type="text" id="companyName" name="companyName" value="@ViewBag.ListOfSuppliers[0].CompanyName" /><br />
+
+            <label for="contactTitle">Contact Title :</label><br />
+            <input type="text" id="contactTitle" name="contactTitle" value="@ViewBag.ListOfSuppliers[0].ContactTitle" /><br />
+
+            <label for="address">Address :</label><br />
+            <input type="text" id="address" name="address" value="@ViewBag.ListOfSuppliers[0].Address" /><br />
+
+            <label for="city">City :</label><br />
+            <input type="text" id="city" name="city" value="@ViewBag.ListOfSuppliers[0].City" /><br />
+
+            <label for="contactTitle">Contact Name :</label><br />
+            <input type="text" id="contactName" name="contactName" value="@ViewBag.ListOfSuppliers[0].ContactName" /><br />
+
+            <label for="postalCode">PostalCode :</label><br />
+            <input type="text" id="postalCode" name="postalCode" value="@ViewBag.ListOfSuppliers[0].PostalCode" /><br />
+
+            <label for="country">Country :</label><br />
+            <input type="text" id="country" name="country" value="@ViewBag.ListOfSuppliers[0].Country" /><br />
+
+            <label for="phone">Phone :</label><br />
+            <input type="text" id="phone" name="phone" value="@ViewBag.ListOfSuppliers[0].Phone" /><br />
+
+            <label for="fax">Fax :</label><br />
+            <input type="text" id="fax" name="fax" value="@ViewBag.ListOfSuppliers[0].Fax" /><br />
+
+            <input type="submit" value="Submit" /><br />
+            <input type="reset" value="Reset" /><br />
+            <a class="button" asp-area="" asp-controller="Home" asp-action="GetSuppliers"><span>Back</span></a>
+        </form>
+    </div>
 
 </body>
 </html>

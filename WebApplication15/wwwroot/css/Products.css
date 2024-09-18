@@ -1,2 +1,100 @@
-﻿body {
+﻿.body {
+    color: white;
 }
+
+.form-container {
+    background-color: grey;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    .filter-form
+
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.filter-section {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.button-section {
+    flex: 1;
+    text-align: right;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    color: white;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: white;
+}
+
+th {
+    background-color: white;
+}
+
+td:hover {
+    overflow: visible;
+    white-space: normal;
+    z-index: 1;
+    position: relative;
+    word-wrap: break-word;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: gold;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+    .button:hover {
+        background-color: #0056b3;
+    }
+
+.submit-button {
+    background-color: green;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.reset-button {
+    background-color: orange;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.revealable {
+    position: relative;
+    transform: translateY(150px);
+    opacity: 0;
+    transition: all 2s ease;
+}
+
+    .revealable.active {
+        transform: translateY(0);
+        opacity: 1;
+    }

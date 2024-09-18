@@ -1,10 +1,55 @@
-﻿<!DOCTYPE html>
-<html>
+﻿﻿
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/css/InsertEmployees.css" asp-append-version="true" />
+    <script src="~/js/Suppliers.js" asp-append-version="true"></script>
+
+    <title>Insert Supplier</title>
 </head>
 <body>
+    <div class="container">
+        <h2>Insert a New Supplier</h2>
 
+        <form action="InsertSupplier" method="post" onsubmit="return validateForm()">
+
+            Company Name <br />
+            <input type="text" name="companyName" /> <br />
+
+            Contact Name <br />
+            <input type="text" name="contactName" /> <br />
+
+            Contact Title <br />
+            <input type="text" name="contactTitle" /> <br />
+
+            Address <br />
+            <input type="text" name="address" /> <br />
+
+            City <br />
+            <input type="text" name="city" /> <br />
+
+            Postal Code <br />
+            <input type="text" name="postalCode" /> <br />
+
+            Country <br />
+            <input type="text" name="country" /> <br />
+
+            Phone <br />
+            <input type="text" name="phone" /> <br />
+
+            Fax <br />
+            <input type="text" name="fax" /> <br />
+
+            <br /><br />
+
+            <input type="submit" value="Submit" />
+            <input type="reset" value="Reset" />
+            <a class="button" asp-area="" asp-controller="Home" asp-action="GetSuppliers"><span>Back</span></a>
+
+        </form>
+
+    </div>
 </body>
 </html>

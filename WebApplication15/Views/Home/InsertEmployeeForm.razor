@@ -1,5 +1,88 @@
-﻿<h3>InsertEmployeeForm</h3>
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insert a New Employee</title>
+    <script>
+        function validateForm() {
+            var lastName = document.getElementsByName("lastName")[0].value.trim();
+            var firstName = document.getElementsByName("firstName")[0].value.trim();
+            var title = document.getElementsByName("title")[0].value.trim();
+            var birthDate = document.getElementsByName("birthDate")[0].value.trim();
+            var hireDate = document.getElementsByName("hireDate")[0].value.trim();
+            var address = document.getElementsByName("address")[0].value.trim();
+            var city = document.getElementsByName("city")[0].value.trim();
+            var postalCode = document.getElementsByName("postalCode")[0].value.trim();
+            var country = document.getElementsByName("country")[0].value.trim();
+            var homePhone = document.getElementsByName("homePhone")[0].value.trim();
+            var extension = document.getElementsByName("extension")[0].value.trim();
 
-@code {
+            // Basic validation, you can add more specific checks if needed
+            if (lastName === "" || firstName === "" || title === "" || birthDate === "" || hireDate === "" ||
+                address === "" || city === "" || postalCode === "" || country === "" || homePhone === "" || extension === "") {
+                alert("All fields are required.");
+                return false;
+            }
 
-}
+            // Additional validation if needed (e.g., date formats, postal code format, etc.)
+
+            return true; // Form submission will proceed if all validations pass
+        }
+    </script>
+</head>
+<body>
+    <h2>Insert a New Employee</h2>
+
+    <form action="InsertEmployee" method="post" onsubmit="return validateForm()">
+
+        Last Name <br />
+        <input type="text" name="lastName" /> <br />
+
+        First Name <br />
+        <input type="text" name="firstName" /> <br />
+
+        Title <br />
+        <input type="text" name="title" /> <br />
+
+        Title of Courtesy <br />
+        <input type="text" name="titleOfCourtesy" /> <br />
+
+        Birth Date <br />
+        <input type="date" name="birthDate" /> <br />
+
+        Hire Date <br />
+        <input type="date" name="hireDate" /> <br />
+
+        Address <br />
+        <input type="text" name="address" /> <br />
+
+        City <br />
+        <input type="text" name="city" /> <br />
+
+        Region <br />
+        <input type="text" name="region" /> <br />
+
+        Postal Code <br />
+        <input type="text" name="postalCode" /> <br />
+
+        Country <br />
+        <input type="text" name="country" /> <br />
+
+        Home Phone <br />
+        <input type="text" name="homePhone" /> <br />
+
+        Extension <br />
+        <input type="text" name="extension" /> <br />
+
+        Notes <br />
+        <textarea name="notes"></textarea> <br />
+
+        <br /><br />
+
+        <input type="submit" />
+        <input type="reset" />
+
+    </form>
+</body>
+</html>

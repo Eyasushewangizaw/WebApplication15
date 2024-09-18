@@ -1,10 +1,86 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insert a New Order</title>
+    <script>
+        function validateForm() {
+            var customerId = document.getElementsByName("customerId")[0].value.trim();
+            var employeeId = document.getElementsByName("employeeId")[0].value.trim();
+            var orderDate = document.getElementsByName("orderDate")[0].value.trim();
+            var requiredDate = document.getElementsByName("requiredDate")[0].value.trim();
+            var shippedDate = document.getElementsByName("shippedDate")[0].value.trim();
+            var shipVia = document.getElementsByName("shipVia")[0].value.trim();
+            var freight = document.getElementsByName("freight")[0].value.trim();
+            var shipName = document.getElementsByName("shipName")[0].value.trim();
+            var shipAddress = document.getElementsByName("shipAddress")[0].value.trim();
+            var shipCity = document.getElementsByName("shipCity")[0].value.trim();
+            var shipRegion = document.getElementsByName("shipRegion")[0].value.trim();
+            var shipPostalCode = document.getElementsByName("shipPostalCode")[0].value.trim();
+            var shipCountry = document.getElementsByName("shipCountry")[0].value.trim();
+
+            // Basic validation
+            if (customerId === "" || isNaN(customerId) || employeeId === "" || isNaN(employeeId) ||
+                orderDate === "" || requiredDate === "" || shipVia === "" || freight === "" || isNaN(freight) ||
+                shipName === "" || shipAddress === "" || shipCity === "" || shipPostalCode === "" || shipCountry === "") {
+                alert("Please enter valid values for all fields.");
+                return false;
+            }
+
+            // Additional validation if needed (e.g., date formats, postal code formats, etc.)
+
+            return true; // Form submission will proceed if all validations pass
+        }
+    </script>
 </head>
 <body>
+    <h2>Insert a New Order</h2>
+    <form action="InsertOrder" method="post" onsubmit="return validateForm()">
+        Customer ID <br />
+        <input type="text" name="customerId" /> <br />
 
+        Employee ID <br />
+        <input type="text" name="employeeId" /> <br />
+
+        Order Date <br />
+        <input type="date" name="orderDate" /> <br />
+
+        Required Date <br />
+        <input type="date" name="requiredDate" /> <br />
+
+        Shipped Date <br />
+        <input type="date" name="shippedDate" /> <br />
+
+        Ship Via <br />
+        <input type="text" name="shipVia" /> <br />
+
+        Freight <br />
+        <input type="text" name="freight" /> <br />
+
+        Ship Name <br />
+        <input type="text" name="shipName" /> <br />
+
+        Ship Address <br />
+        <input type="text" name="shipAddress" /> <br />
+
+        Ship City <br />
+        <input type="text" name="shipCity" /> <br />
+
+        Ship Region <br />
+        <input type="text" name="shipRegion" /> <br />
+
+        Ship Postal Code <br />
+        <input type="text" name="shipPostalCode" /> <br />
+
+        Ship Country <br />
+        <input type="text" name="shipCountry" /> <br />
+
+        <br /><br />
+
+        <input type="submit" />
+        <input type="reset" />
+
+    </form>
 </body>
 </html>

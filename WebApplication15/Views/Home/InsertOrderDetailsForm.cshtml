@@ -1,10 +1,61 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insert a New Order Detail</title>
+    <script>
+        function validateForm() {
+            var orderId = document.getElementById("orderId").value.trim();
+            var unitPrice = document.getElementById("unitPrice").value.trim();
+            var quantity = document.getElementById("quantity").value.trim();
+            var discount = document.getElementById("discount").value.trim();
+
+            // Basic validation
+            if (orderId === "" || isNaN(orderId) || unitPrice === "" || isNaN(unitPrice) || quantity === "" || isNaN(quantity) || discount === "" || isNaN(discount)) {
+                alert("Please enter valid values for all fields.");
+                return false;
+            }
+
+            // Additional validation if needed (e.g., check if values are within specific ranges)
+
+            return true; // Form submission will proceed if all validations pass
+        }
+    </script>
 </head>
 <body>
+    <h2>Insert a New Order Detail</h2>
+    <form action="InsertOrderDetails" method="Post" onsubmit="return validateForm()">
+        Order Id <br />
+        <select id="orderId" class="thisIsForYourCss" name="orderId">
+            @foreach (var o in ViewBag.ListOfOrders)
+            {
+                <option value="@o.OrderId">@o.OrderId</option>
+            }
+        </select>
+        <br /><br />
 
+        Product Id <br />
+        <select id="productId" class="thisIsForYourCss" name="productId">
+            @foreach (var p in ViewBag.ListOfProducts)
+            {
+                <option value="@p.ProductId">@p.ProductId @p.ProductName</option>
+            }
+        </select>
+        <br /><br />
+
+        Unit Price <br />
+        <input type="text" id="unitPrice" class="thisIsForYourCss" name="unitPrice" /> <br />
+
+        Quantity <br />
+        <input type="text" id="quantity" class="thisIsForYourCss" name="quantity" /> <br />
+
+        Discount <br />
+        <input type="text" id="discount" class="thisIsForYourCss" name="discount" /> <br /><br />
+
+        <input type="submit" value="Submit" />
+        <input type="reset" value="Reset" />
+    </form>
 </body>
 </html>
+

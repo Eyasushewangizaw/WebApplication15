@@ -1,10 +1,79 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/css/.css" asp-append-version="true" />
+    <script src="~/js/Customers.js" asp-append-version="true"></script>
+    <script>
+        function validateForm() {
+            var customerId = document.getElementsByName("customerId")[0].value.trim();
+            var companyName = document.getElementsByName("companyName")[0].value.trim();
+            var contactName = document.getElementsByName("contactName")[0].value.trim();
+            var contactTitle = document.getElementsByName("contactTitle")[0].value.trim();
+            var address = document.getElementsByName("address")[0].value.trim();
+            var city = document.getElementsByName("city")[0].value.trim();
+            var postalCode = document.getElementsByName("postalCode")[0].value.trim();
+            var country = document.getElementsByName("country")[0].value.trim();
+            var phone = document.getElementsByName("phone")[0].value.trim();
+            var fax = document.getElementsByName("fax")[0].value.trim();
+
+            // Basic validation, you can add more specific checks if needed
+            if (customerId === "" || companyName === "" || contactName === "" || contactTitle === "" ||
+                address === "" || city === "" || postalCode === "" || country === "" || phone === "" || fax === "") {
+                alert("All fields are required.");
+                return false;
+            }
+
+            // Additional validation if needed (e.g., postal code format, phone number format, etc.)
+
+            return true; // Form submission will proceed if all validations pass
+        }
+    </script>
 </head>
 <body>
+    <div class="container">
+        <h2>Insert a New Customer</h2>
+        <form action="InsertCustomer" method="post" onsubmit="return validateForm()">
+            Customer<br />
+            <input type="text" name="customerId" /> <br />
 
+            Company Name <br />
+            <input type="text" name="companyName" /> <br />
+
+            Contact Name <br />
+            <input type="text" name="contactName" /> <br />
+
+            Contact Title <br />
+            <input type="text" name="contactTitle" /> <br />
+
+            Address <br />
+            <input type="text" name="address" /> <br />
+
+            City <br />
+            <input type="text" name="city" /> <br />
+
+            Region <br />
+            <input type="text" name="region" /> <br />
+
+            Postal Code <br />
+            <input type="text" name="postalCode" /> <br />
+
+            Country <br />
+            <input type="text" name="country" /> <br />
+
+            Phone <br />
+            <input type="text" name="phone" /> <br />
+
+            Fax <br />
+            <input type="text" name="fax" /> <br />
+
+            <br /><br />
+
+            <input type="submit" value="Submit" />
+            <input type="reset" value="Reset" />
+            <a class="button" asp-area="" asp-controller="Home" asp-action="GetCustomers"><span>Back</span></a>
+        </form>
+    </div>
 </body>
 </html>
